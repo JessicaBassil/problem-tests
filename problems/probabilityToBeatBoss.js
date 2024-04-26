@@ -54,8 +54,9 @@ const probabilityToBeatBoss = async (propSuit, propCompanion, propFruit) => {
 };
 
 /**
- *
+ * read data from csv file
  * @param {string} path local path to the file
+ * @remarks async fct
  */
 const convertCSV = async (path) => {
   if (fileData) {
@@ -83,7 +84,21 @@ const roundToOneDecimal = (number) => {
 };
 
 /**
+ * Get count of each data in a count object with the following structure:
+ * >> result includes one of the results (please check constants.js for further information)
+ * >> type is either suit or companion or fruit (please check constants.js for the values of each const)
+ * value is part of any suit/companion/fruit in suits/companions/fruits
+ * nbOfOccurrences is the count of each value
  *
+ * {
+ *  [result]: {
+ *      [type]: {
+ *          [value]: {
+ *              nbOfOccurrences
+ *          }
+ *      }
+ *  }
+ * }
  */
 const getCounts = async () => {
   //assuming this doesn't change
